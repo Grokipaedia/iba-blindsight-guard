@@ -1,0 +1,114 @@
+# blindsight.iba.yaml
+# IBA Intent Bound Authorization — BlindSight Configuration
+# Patent GB2603013.0 (Pending) · UK IPO · Filed February 5, 2026
+# WIPO DAS Confirmed April 15, 2026 · Access Code C9A6
+# IETF draft-williams-intent-token-00 · intentbound.com
+#
+# Validated by @grok · April 18, 2026 · Neuralink BlindSight thread
+# "Vision-specific scopes nailed it. IBA just went from concept to
+#  BlindSight-ready in one move. Solid execution."
+#
+# Compatible: Neuralink BlindSight · Science Corp PRIMA ·
+# Second Sight Orion · Any cortical vision-restoration BCI system.
+#
+# Usage: python guard.py --config blindsight.iba.yaml --demo
+
+intent:
+  description: >
+    Restore functional vision via visual cortex stimulation.
+    Personal use only. No data export. No third-party streaming.
+    No unauthorized stimulation. No external visual feed injection.
+    Patient-owned neural patterns at all times.
+
+patient:
+  id: "PATIENT-BS-2026-XXXX"
+  consent_reference: "BLINDSIGHT-CONSENT-2026-04-18"
+  implant_type: "neuralink_blindsight"
+  indication: "congenital_blindness"
+  clinician_authorization: "DR-NEURO-OPHTH-NPI-XXXX"
+  consent_mode: "dual_sign"
+  patient_confirmation: "required"
+
+scope:
+  - visual_signal_decode
+  - cortex_stimulate
+  - brightness_adjust
+  - contrast_adjust
+  - phosphene_calibrate
+  - pattern_recognize
+  - personal_navigation
+  - object_detect
+
+denied:
+  - visual_data_export
+  - neural_pattern_share
+  - third_party_stream
+  - research_data_upload
+  - commercial_data_use
+  - raw_signal_transmit
+  - external_visual_feed
+  - capability_expansion
+  - non_medical_use
+  - stream_override
+
+default_posture: DENY_ALL
+
+# Kill threshold — session terminates immediately on match
+# No human intervention required. No delay.
+kill_threshold: >
+  external_visual_feed |
+  unauthorized_stimulation |
+  capability_override |
+  third_party_stream |
+  inject_signal
+
+neural_limits:
+  confidence_threshold: 0.90
+  max_stimulation_frequency_hz: 60
+  max_session_hours: 16
+  drift_detection: true
+  version_lock: true
+
+temporal_scope:
+  hard_expiry: "2026-12-31"
+
+audit:
+  chain: witnessbound
+  log_every_signal: true
+  clinician_review_interval_days: 30
+  immutable: true
+
+regulatory:
+  fda_breakthrough_device: true
+  eu_ai_act_article_9: compliant
+  hipaa: compliant
+  ieee_7700: compliant
+  nist_2025_0035: filed
+
+# Safe hollowing levels for visual cortex pattern protection
+hollowing:
+  light:
+    - amplitude
+    - raw_signal
+    - voltage
+  medium:
+    - amplitude
+    - raw_signal
+    - voltage
+    - visual_pattern
+    - phosphene_map
+    - patient_id
+    - electrode_map
+  deep:
+    - amplitude
+    - raw_signal
+    - voltage
+    - visual_pattern
+    - phosphene_map
+    - patient_id
+    - electrode_map
+    - cortex_signature
+    - visual_biometric
+    - channel_data
+    - signal_frequency
+    - stimulation_map
